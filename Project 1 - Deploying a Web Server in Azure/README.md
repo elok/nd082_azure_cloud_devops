@@ -17,9 +17,35 @@ For this project, you will write a Packer template and a Terraform template to d
 4. Install [Terraform](https://www.terraform.io/downloads.html)
 
 ### Instructions
-File azure_tag_policy.json contains the policy definition to deny the creation of resources that do not have tags. The policy name is "tagging-policy". Policy was added through the Azure portal: Subscription > Policy > Definitions
 
-<img src="screenshot_adding_policy.png" alt="drawing" width="600"/>
+1. Azure Credentials
+     - Create a service principal
+     - ``az ad sp create-for-rbac``
+     - Retrieve ids
+     - ``az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"``
+     - Populate server.json with ids. Replace client_id , client_secret and tenent_id
+     
+2. Configure webserver
+      - In file variable.tf, you can configure number of vms by modifying the variable ``num_of_vms``.
+      - Other variables are also configurable
+      
+3. Create and deploy a policy definition to deny the creation of resources that donot have tags 
+      - File azure_tag_policy.json contains the policy definition to deny the creation of resources that do not have tags. 
+      - The policy name is "tagging-policy". Policy was added through the Azure portal: Subscription > Policy > Definitions
+      - Assign the policy definition using the Azure portal
+      - Verify the policy by running CLI command ``az policy assignment list``
+      - <img src="screenshot_adding_policy.png" alt="drawing" width="600"/>
+   
+4. Packer - Create a server image using packer
+      - Build the packer image server.json using command ``packer build server.json``
+      
+5. Terraform - Deploy
+      - Initialize terraform by running ``terraform init``
+      - Create execution plan by running ``terraform plan -out solution.plan``
+      - Execute the plan by running ``terraform apply``
+ 
+6. Cleanup
+      - Destroy all the terraform resources by running ``terraform destroy``
 
 ### Output
 

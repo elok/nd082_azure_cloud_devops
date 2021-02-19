@@ -17,11 +17,12 @@ For this project, you will write a Packer template and a Terraform template to d
 4. Install [Terraform](https://www.terraform.io/downloads.html)
 
 ### Instructions
-File azure_tag_policy.json contains the policy definition to deny the creation of resources that do not have tags. The policy name is "tagging-policy".
+File azure_tag_policy.json contains the policy definition to deny the creation of resources that do not have tags. The policy name is "tagging-policy". Policy was added through the Azure portal: Subscription > Policy > Definitions
+
+<img src="screenshot_adding_policy.png" alt="drawing" width="600"/>
 
 ### Output
-**Your words here**
 
-Tagging Policy Screenshot
-![GitHub Logo](screenshot_tagging_policy.png)
+Tagging Policy Screenshot acquired by running "az policy assignment list" in command line
+![Tagging Policy](screenshot_tagging_policy.png)
 

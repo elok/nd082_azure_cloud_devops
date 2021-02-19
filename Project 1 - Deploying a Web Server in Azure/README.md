@@ -22,3 +22,6 @@ File azure_tag_policy.json contains the policy definition to deny the creation o
 ### Output
 **Your words here**
 
+Tagging Policy Screenshot
+![GitHub Logo](screenshot_tagging_policy.png)
+

@@ -2,13 +2,11 @@
     "mode": "All",
     "policyRule": {
       "if": {
-        "not": {
           "field": "[concat('tags[', parameters('tagName'), ']')]",
-          "equals": "[parameters('tagValue')]"
-        }
+          "exists": "true"
       },
       "then": {
-        "effect": "deny"
+          "effect": "deny"
       }
     },
     "parameters": {
@@ -17,13 +15,6 @@
         "metadata": {
           "displayName": "tagging-policy",
           "description": "Manditory tag for all resources"
-        }
-      },
-      "tagValue": {
-        "type": "String",
-        "metadata": {
-          "displayName": "Tag Value",
-          "description": "Value of the tag, such as 'webserver'"
         }
       }
     }

@@ -45,7 +45,7 @@ For this project, you will write a Packer template and a Terraform template to d
 6. Terraform - Deploy
       - Initialize terraform by running ``terraform init``. Init is used to initialize a working directory containing Terraform configuration files. In this repo, Terraform files are main.tf and variables.tf
       - Create execution plan by running ``terraform plan -out solution.plan``
-      - Execute the plan by running ``terraform apply``
+      - Execute the plan by running ``terraform apply "solution.plan"``
  
 7. Cleanup
       - Destroy all the terraform resources by running ``terraform destroy``

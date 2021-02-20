@@ -38,6 +38,8 @@ For this project, you will write a Packer template and a Terraform template to d
 
 4. Resource group
       - Create Azure resource group by command ``az group create --location eastus --name packer-rg``
+      - ``az image list``
+      - ``az image delete -g packer-rg -n webserverPackerImage``
    
 5. Packer - Create a server image using packer
       - Build the packer image server.json using command ``packer build server.json``
@@ -54,4 +56,7 @@ For this project, you will write a Packer template and a Terraform template to d
 
 Tagging Policy Screenshot acquired by running "az policy assignment list" in command line
 ![Tagging Policy](screenshot_tagging_policy.png)
+
+Deployed Terraform Screenshot
+![Tagging Policy](screenshot_terraform_deploy.png)
 

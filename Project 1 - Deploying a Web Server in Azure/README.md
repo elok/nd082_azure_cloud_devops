@@ -29,22 +29,25 @@ For this project, you will write a Packer template and a Terraform template to d
       - In file variable.tf, you can configure number of vms by modifying the variable ``num_of_vms``.
       - Other variables are also configurable
       
-3. Create and deploy a policy definition to deny the creation of resources that donot have tags 
-      - File azure_tag_policy.json contains the policy definition to deny the creation of resources that do not have tags. 
+3. Create and deploy a policy definition to deny the creation of resources that do not have tags
+      - File azure_tag_policy.json contains the policy definition to deny the creation of resources that do not have tags.
       - The policy name is "tagging-policy". Policy was added through the Azure portal: Subscription > Policy > Definitions
       - Assign the policy definition using the Azure portal
       - Verify the policy by running CLI command ``az policy assignment list``
       - <img src="screenshot_adding_policy.png" alt="drawing" width="600"/>
+
+4. Resource group
+      - Create Azure resource group by command ``az group create --location eastus --name packer-rg``
    
-4. Packer - Create a server image using packer
+5. Packer - Create a server image using packer
       - Build the packer image server.json using command ``packer build server.json``
       
-5. Terraform - Deploy
-      - Initialize terraform by running ``terraform init``
+6. Terraform - Deploy
+      - Initialize terraform by running ``terraform init``. Init is used to initialize a working directory containing Terraform configuration files. In this repo, Terraform files are main.tf and variables.tf
       - Create execution plan by running ``terraform plan -out solution.plan``
-      - Execute the plan by running ``terraform apply``
+      - Execute the plan by running ``terraform apply "solution.plan"``
  
-6. Cleanup
+7. Cleanup
       - Destroy all the terraform resources by running ``terraform destroy``
 
 ### Output

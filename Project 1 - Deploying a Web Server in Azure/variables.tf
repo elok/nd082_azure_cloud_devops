@@ -11,7 +11,7 @@ variable "location" {
   
 variable "resource_group" {
   description = "Name of the resource group, including the -rg"
-  default     = "packer-rg"
+  default     = "udacity-WSproject-rg"
   type        = string
 }
 

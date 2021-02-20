@@ -1,6 +1,8 @@
 {
 	"variables": {
-
+		"client_id": "{{env `AZ_PACKER_ID` }}",
+		"tenant_id": "{{env `AZ_TENANT_ID` }}",
+		"client_secret": "{{env `AZ_PACKER_SECRET` }}"
 	},
 	"builders": [{
 		"type": "azure-arm",
@@ -14,12 +16,14 @@
 		"image_offer": "UbuntuServer",
 		"image_sku": "18.04-LTS",
 		"azure_tags": {
-		"Name": "azure-webserver"
-		},
+			"Name": "azure-webserver"
+			},
+
 		"managed_image_resource_group_name": "packer-rg",
 		"managed_image_name": "webserverPackerImage",
-
-		"location": "East US",
+		
+		"build_resource_group_name": "packer-rg",
+		
 		"vm_size": "Standard_B1s"
 	}],
 	"provisioners": [{
